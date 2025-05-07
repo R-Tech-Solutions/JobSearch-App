@@ -1,0 +1,107 @@
+import {View, Text, TextInput, Button , StyleSheet , Image , TouchableOpacity} from 'react-native';
+import { useState } from 'react';
+import { router } from 'expo-router';
+
+export default function Login(){
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+
+    const handleLogin =()=>{
+        console.log('Logging in with:', email,password)
+    }
+
+    return(
+        <View style={styles.container}>
+
+            <Image 
+                source={require('@/assets/images/JobImage.png')}
+                style={styles.image} 
+                resizeMode="contain"
+            />
+            <Text style={styles.heading}>Log In</Text>
+            
+            <Text style={styles.subheading}>Email</Text>
+            <TextInput style={styles.TextInput} onChangeText={setEmail} value={email} placeholder="Email" />
+            <Text style={styles.subheading}>Password</Text>
+            <TextInput style ={styles.TextInput} onChangeText={setPassword} value={password} placeholder="Password" />
+
+            <TouchableOpacity onPress={() => router.push('/(auth)/forgetpassword')}>
+                <Text style={styles.forgetPassword}>Forget Password</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.loginButton} onPress={() => router.push('/(tabs)/hometab')}>
+                <Text  style={styles.loginButtonText}  onPress={handleLogin}>Log In</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress={() => router.push('/(auth)/sign-up')}>
+                <Text style={styles.signupText}>Don't have an account?</Text>
+            </TouchableOpacity>
+        </View>
+    )
+};
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        padding:20,
+        backgroundColor:'#fff',
+        justifyContent:'center'
+    },
+    image:{
+        width:'100%',
+        height:300,
+        marginBottom:20,
+    },
+    heading:{
+        fontSize:20,
+        fontWeight:'bold',
+        color:'black',
+        marginBottom:20,
+        textAlign:'left'
+    },
+    subheading:{
+        fontSize:16,
+        fontWeight:'bold',
+        color:'#007AFF',
+        marginBottom:10,
+        textAlign:'left'
+    },
+    TextInput :{
+        height:45,
+        borderRadius:6,
+        backgroundColor:'#f2f2f2',
+        paddingHorizontal:10,
+        marginBottom:15,
+        shadowColor:'#000',
+        shadowOffset:{
+            width:1,
+            height:1
+        },
+        shadowOpacity:0.1,
+        shadowRadius:2,
+        elevation:2,
+    },
+    forgetPassword:{
+        textAlign:'left',
+        color:'#1976d2',
+        marginBottom:10
+    },
+    loginButton:{
+        backgroundColor:'#007bff',
+        paddingVertical:12,
+        borderRadius:6,
+        alignItems:'center',
+        marginBottom:10,
+    },
+    loginButtonText:{
+        color:'white',
+        fontSize:16,
+        fontWeight:'600',
+    },
+    signupText:{
+        fontSize:14,
+        color:'#1976d2',
+        fontWeight:'600',
+        textAlign:'center',
+    }
+})
