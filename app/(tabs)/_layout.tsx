@@ -10,7 +10,7 @@ export default function TabLayout() {
     <SafeAreaProvider>
       <PaperProvider>
         <Stack>
-          <Stack.Screen name="hometab" options={{headerShown:false}} />
+          <Stack.Screen name="popularjobs" options={{headerShown:false}} />
           
         </Stack>
       </PaperProvider>

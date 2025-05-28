@@ -29,7 +29,7 @@ export default function Login(){
                 <Text style={styles.forgetPassword}>Forget Password</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.loginButton} onPress={() => router.push('/(tabs)/hometab')}>
+            <TouchableOpacity style={styles.loginButton} onPress={() => router.push('/(drawer)/hometab')}>
                 <Text  style={styles.loginButtonText}  onPress={handleLogin}>Log In</Text>
             </TouchableOpacity>
             

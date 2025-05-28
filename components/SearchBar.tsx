@@ -4,7 +4,7 @@ export default function SearchBar({value, onChange}:{value:string, onChange:(tex
     return (
         <View style={styles.container}>
             <TextInput
-                style={styles.input}
+                style={styles.TextInput}
                 placeholder="Search for jobs..."
                 value={value}
                 onChangeText={onChange}
@@ -17,10 +17,14 @@ export default function SearchBar({value, onChange}:{value:string, onChange:(tex
 const styles = StyleSheet.create({
     container:{
         margin:16,
+        
     },
-    input:{
-        backgroundColor:'#f1f1f1',
-        padding:16,
-        borderRadius:8,
+    TextInput :{
+        height:45,
+        borderRadius:6,
+        backgroundColor:'#f2f2f2',
+        paddingHorizontal:10,
+        marginBottom:15,
+        elevation:4,
     },
 });
